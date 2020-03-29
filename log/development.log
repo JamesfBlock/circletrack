@@ -1,0 +1,551 @@
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CircleTrack_development"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CircleTrack_test"[0m
+  [1m[35m (761.4ms)[0m  [1m[35mCREATE DATABASE "CircleTrack_development" ENCODING = 'unicode'[0m
+  [1m[35m (636.6ms)[0m  [1m[35mCREATE DATABASE "CircleTrack_test" ENCODING = 'unicode'[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2747681031208234905)[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-29 20:09:39.842153"], ["updated_at", "2020-03-29 20:09:39.842153"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2747681031208234905)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2747681031208234905)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20200329200949)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (26.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200329200949"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2747681031208234905)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:10:35 +0100
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.0ms | Allocations: 304)
+  Rendered shared/_navbar.html.erb (Duration: 4.3ms | Allocations: 613)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 185)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/jamesblock/Documents/CircleTrack/public/packs
+[Webpacker] (node:78445) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+
+[Webpacker] Hash: 2c7d930377460257e314
+Version: webpack 4.42.1
+Time: 2864ms
+Built at: 03/29/2020 9:10:45 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c1d2cee379c5c59d7f03.js    561 KiB  application  [emitted] [immutable]  application
+js/application-c1d2cee379c5c59d7f03.js.map    698 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-c1d2cee379c5c59d7f03.js js/application-c1d2cee379c5c59d7f03.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 115 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes {application} [built]
+    + 5 hidden modules
+
+Completed 200 OK in 10079ms (Views: 10072.3ms | ActiveRecord: 0.0ms | Allocations: 128073)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:10:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 595)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 385.4ms | Allocations: 25138)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 136)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 25)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 454ms (Views: 417.0ms | ActiveRecord: 10.2ms | Allocations: 41165)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-03-29 21:10:51 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 119)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.9ms | Allocations: 7138)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 25)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 52.4ms | ActiveRecord: 0.0ms | Allocations: 17893)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-03-29 21:11:05 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"2D8I7+jWayoOMSWDm1XG8jJMnKHy/PbjcFz2QUrfCV5XD2iSixk87itUgTKCCKxKdrIgMt1PbmgDz3Fixm3GlQ==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (5.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jamesblock@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 80)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 19.8ms | Allocations: 6623)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 23)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 376ms (Views: 37.1ms | ActiveRecord: 5.3ms | Allocations: 25619)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-03-29 21:11:05 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"0XRpRYOxKxZIknVifHtnIrGjL6ZgM4YLokN18WKA4YdeRAk44H580m330dNlJg2a9V2TNU+AHoDR0PLS7jIuTA==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jamesblock@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 80)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 16.7ms | Allocations: 6577)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 23)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 33.9ms | ActiveRecord: 0.6ms | Allocations: 22051)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-03-29 21:11:12 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"93fhs38EcjqvMy8zmiHCS5KA+1v0F/IyL092tnaNBd94R4HOHMsl/opWi4KDfKjz1n5HyNukarlc3PGV+j/KFA==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jamesblock@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 80)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 6587)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 23)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 148ms (Views: 21.3ms | ActiveRecord: 0.6ms | Allocations: 22254)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-03-29 21:11:20 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"frFM4z9ZMEygRT2hwCLGI5mfx/2wT6ntwOavop6mgYbxgSyeXJZniIUgmRDZf6yb3WF7bp/8MWazdSiBEhROTQ==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jamesblock@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "jamesblock@gmail.com"], ["encrypted_password", "$2a$11$B0tqzSaOnbGhRxA4/5rs5uDdKqVLe3oIqx.ht4ZwcMFNDrOyE9C/K"], ["created_at", "2020-03-29 20:11:20.906281"], ["updated_at", "2020-03-29 20:11:20.906281"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms (ActiveRecord: 6.9ms | Allocations: 6902)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:11:20 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 18.4ms | Allocations: 1244)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 31)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.7ms | Allocations: 11053)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-03-29 21:11:27 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ugvjILuhblVcnoQPW2kagE1DhXDcx8MeduDvW4BtZgw1O4Nd2G45kXn7IL5CNHA4Cb054/N0W5UFc2h4DN+pxw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.3ms | Allocations: 2606)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:11:27 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 166)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 9941)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:11:28 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 8591)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 25)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 18661)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:11:35 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"3BTUxl2MZbOLw9lf7+iGJUEb0OM0o+g49D+vwEjzqMlg4ukmR2PFza/tcHCKm2dSHQWjRHtM5XVPu6Sq7J1Gvw==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jamesblock@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 133ms (ActiveRecord: 0.4ms | Allocations: 3177)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:11:35 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.2ms | Allocations: 1103)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 28)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 25.8ms | ActiveRecord: 0.3ms | Allocations: 10963)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:13:49 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 79)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 3.2ms | Allocations: 1471)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.3ms | Allocations: 12885)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:14:14 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 141)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 1472)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.3ms | Allocations: 12858)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:14:15 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1750)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:14:15 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 48)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 1096)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 10943)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:14:17 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1746)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:14:17 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 1094)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.2ms | Allocations: 10920)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:16 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 204)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 1465)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.2ms | Allocations: 13077)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-03-29 21:15:19 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m0jqwicyVdD9hGmVVh11Ie0g1BAuLbv4yMLewMYIxGEeNzH/FX+raIP7roOfyuE8CCNonKB7E83dlRIx6+tbbA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 2064)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:19 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 90)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 157)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 10014)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:15:21 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 515)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.5ms | Allocations: 9331)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 25)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.0ms | Allocations: 20605)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:15:23 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"RvLW3YO+qx/eEPDH05Y/kfT1NcccMy2mvFtDA7ma0cfuK74mrk2WHcs1dtvjo972bVoE+cg7Ch+8QgBMLzY9PA==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 408)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"RvLW3YO+qx/eEPDH05Y/kfT1NcccMy2mvFtDA7ma0cfuK74mrk2WHcs1dtvjo972bVoE+cg7Ch+8QgBMLzY9PA==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 8591)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 96)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 18)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms | Allocations: 18499)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-03-29 21:15:27 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lsjmmIeEfGTILgEdLA8GRW+b8xZxyyhde3NW9CwJJhY+EY5jqndBZt0LhwEcOuci9jTCKKXDD+R7ahW7uqXK7Q==", "user"=>{"email"=>"jamesblock@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jamesblock@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 137ms (ActiveRecord: 0.3ms | Allocations: 3685)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:27 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 90)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.1ms | Allocations: 1095)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 30)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 10972)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-03-29 21:15:29 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Rcobszpne5yPK9P9tEsVN0+TMe9aJsYjVVflIAs80FcDUQqUy0iohtu01etxA0+E6/hb/mD6UdUFpjYXS4BHtw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2056)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:29 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 84)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 156)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 29)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 10017)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:40 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 194)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 528)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 12127)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:48 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 184)
+  Rendered shared/_navbar.html.erb (Duration: 1.6ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 11938)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:15:57 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 188)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.7ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 12115)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:16:11 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 188)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.0ms | Allocations: 11932)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:16:17 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 191)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 11943)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:18:04 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 205)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 12146)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:18:43 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 208)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 12139)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:21:13 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 204)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 524)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms | Allocations: 11962)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:21:23 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 204)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 523)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 11964)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:22:25 +0100
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 351)
+  Rendered shared/_navbar.html.erb (Duration: 3.0ms | Allocations: 578)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 112ms (Views: 109.9ms | ActiveRecord: 0.0ms | Allocations: 39906)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2747681031208234905)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePackages (20200329202413)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.4ms)[0m  [1m[35mCREATE TABLE "packages" ("id" bigserial primary key, "name" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_bb26f220aa"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_packages_on_user_id" ON "packages"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200329202413"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2747681031208234905)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:27:22 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 96)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 568)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 182)
+  Rendered shared/_dev_tools.html.erb (Duration: 0.7ms | Allocations: 179)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 12626)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:27:31 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 91)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 557)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 182)
+  Rendered shared/_dev_tools.html.erb (Duration: 0.5ms | Allocations: 175)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.0ms | Allocations: 12277)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:27:34 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 166)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered shared/_dev_tools.html.erb (Duration: 0.1ms | Allocations: 60)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 10215)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:28:51 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 89)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 561)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.0ms | Allocations: 14052)
+
+
+  
+ActionView::Template::Error (Missing partial shared/_tempheader with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/jamesblock/Documents/CircleTrack/app/views"
+  * "/Users/jamesblock/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.1/app/views"
+  * "/Users/jamesblock/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/jamesblock/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.2.1/app/views"
+):
+    11:   </head>
+    12:   <body>
+    13:     <!--<%= render 'shared/navbar' %>-->
+    14:     <%= render 'shared/tempheader' %>
+    15:     <%= render 'shared/flashes' %>
+    16: 
+    17:     <%= yield %>
+  
+app/views/layouts/application.html.erb:14
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:29:07 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 87)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 558)
+  Rendered shared/_tempheader.html.erb (Duration: 0.4ms | Allocations: 78)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 182)
+  Rendered shared/_dev_tools.html.erb (Duration: 2.5ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 12873)
+
+
+Started GET "/" for 127.0.0.1 at 2020-03-29 21:35:13 +0100
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 166)
+  Rendered shared/_tempheader.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered shared/_dev_tools.html.erb (Duration: 0.2ms | Allocations: 60)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 10397)
+
+
