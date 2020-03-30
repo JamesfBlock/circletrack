@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_202413) do
+ActiveRecord::Schema.define(version: 2020_03_29_232118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "journeys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "toAddress"
+    t.string "string"
+    t.string "fromAddress"
+    t.integer "distance"
+    t.bigint "package_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["package_id"], name: "index_journeys_on_package_id"
+    t.index ["user_id"], name: "index_journeys_on_user_id"
+  end
 
   create_table "packages", force: :cascade do |t|
     t.string "name"
@@ -31,9 +44,12 @@ ActiveRecord::Schema.define(version: 2020_03_29_202413) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "company"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "journeys", "packages"
+  add_foreign_key "journeys", "users"
   add_foreign_key "packages", "users"
 end

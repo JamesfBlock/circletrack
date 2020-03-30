@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  # ***********PAGES ROUTES *********** #
+
   # root page defined below
   root to: 'pages#home'
-
-  #Any other routes directing to views go below:
 
   # Route to about page /about
   get 'about', to: 'pages#about'
 
 
+  # ***********PACKAGE ROUTES *********** #
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Route to packages page /packages
+  get 'packages', to: 'packages#index'
+  get "packages/:id", to: "packages#show", as: :package
+
 end
+

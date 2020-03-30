@@ -1,0 +1,46 @@
+<!-- app/views/packages/show.html.erb -->
+<% totalDistance = 0 %>
+
+<h2><%= @package.name %></h2>
+
+<h5><u>Details</u></h5>
+
+Package Name: <%= @package.name %><br>
+Created Date: <%= @package.created_at %><br>
+Shipment Agent: <%= @package.user.company %><br>
+Total Journeys: <%= @package.journeys.count%><br>
+
+<hr>
+
+<h5><u>Journeys</u></h5>
+<% @package.journeys.each do |journey| %>
+  <% totalDistance += journey.distance? ? journey.distance : 0 %>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://source.unsplash.com/random" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= journey.user.email %></h5>
+          <p class="card-text"><%= "Journey from #{journey.fromAddress} to #{journey.toAddress}" %></p>
+          <p>Distance: <%= journey.distance %></p>
+           <p>Id: <%= journey.id %></p>
+          <p class="card-text"><small class="text-muted"><%= journey.created_at %></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+Total Distance: <%= totalDistance %> kms
+
+<%end%>
+<hr>
+
+<h5><u>Rewards</u></h5>
+
+
+<hr>
+
+<td><%= link_to "Back to packages", packages_path %></td>
+

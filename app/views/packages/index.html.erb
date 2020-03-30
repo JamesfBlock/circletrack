@@ -1,0 +1,27 @@
+<!-- app/views/packages/index.html.erb -->
+<div class="m-3">
+
+<h5>List of all my packages</h5>
+
+<table class="table">
+  <thead class="thead-dark">
+    <th>Package Reference</th>
+    <th>Created</th>
+    <th>Shipper</th>
+    <th>Show</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+      <% @packages.each do |package| %>
+        <tr>
+          <td><%= package.name %></td>
+          <td><%= package.created_at %></td>
+          <td><%= package.user.email %></td>
+
+          <td><%= link_to "Go to Package", package_path(package) %></td>
+          <td><%= link_to "Edit" %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+</div>
